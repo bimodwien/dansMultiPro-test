@@ -1,6 +1,7 @@
 .navbar-utama {
     background-color: #427FBE;
     display: flex;
+    justify-content: space-between;
     padding: 15px 10px;
     color: #FDFDFE;
     gap: 2px;

@@ -1,21 +1,10 @@
 'use strict'
+const UserController = require('../controllers/UserController')
 
 const router = require('express').Router();
 
-function fetching() {
-    fetch(`https://dev6.dansmultipro.com/api/recruitment/positions.json`)
-        .then((response) => {
-            return response.json()
-        })
-        .then((data) => {
-            return data;
-        })
-        .catch((error) => {
-            console.log('error');
-        })
-}
 
-router.get('/data',fetching)
+router.post('/login',UserController.login)
 
 
 module.exports = router;

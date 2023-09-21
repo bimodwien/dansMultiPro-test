@@ -1,9 +1,9 @@
 'use strict';
-const {makeHash} = require('../helpers/hash')
+
 const data = [
   {
     username: 'bimodwien',
-    password: makeHash('admin'),
+    password: 'admin',
     createdAt: new Date(),
     updatedAt: new Date()
   }

@@ -1,0 +1,18 @@
+.detail-main {
+    border: 8px solid #EBEBEB;
+}
+
+.detail-nav {
+    padding: 10px 30px;
+    border-bottom: 3px solid #EBEBEB;
+}
+
+.detail-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-description {
+    width: 60%;
+    background-color: #ffffff;
+}

@@ -1,35 +1,47 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Navbar from '../../components/navbar/Navbar';
 import './landing.css'
 import { useFetch } from '../../helper';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
 
   const [page, setPage] = useState(1)
-  const [inputDescription, setInputDescription] = useState('')
-  const [inputLocation, setInputLocation] = useState('')
+  const [filterDescription, setFilterDescription] = useState('')
+  const [filterLocation, setFilterLocation] = useState('')
+  const [filterFullTime, setFilterFullTime] = useState(false)
 
-
-  const isFullTime = true
-
-  const dataFetch = useFetch({
-    url: `https://dev6.dansmultipro.com/api/recruitment/positions.json?page=${page}`,
-    defaultData: []
+  const input1 = useRef(null)
+  const input2 = useRef(null)
+  const inputCheck = useRef(null)
+  const params = [`page=${page}`,filterDescription, filterLocation, filterFullTime].filter((item) => {
+    return !!item
   })
 
-  function handleFilterDescription(params) {
-    setInputDescription(params.target.value)
-  }
+  const dataFetch = useFetch({
+    url: `https://dev6.dansmultipro.com/api/recruitment/positions.json?${params.join('&')}`,
+    defaultData: [],
+    shouldContinue: () => page !== 1
+  })
 
-  function handleFilterLocation(params) {
-    setInputLocation(params.target.value)
+  function handleSearch(event) {
+    event.preventDefault()
+    const description = input1.current.value;
+    const location = input2.current.value;
+    const checkBox = inputCheck.current.checked;
+    if(description) {
+      setFilterDescription(`description=${description.toLowerCase()}`)
+    }
+    if(location) {
+      setFilterLocation(`location=${location.toLowerCase()}`)
+    }
+    if(checkBox) {
+      setFilterFullTime(`full_time=${checkBox}`)
+    }
+    setPage(1)
   }
+  
 
-  function handleSearch(params) {
-    
-  }
-
-  //masih belum bisa
   function handlePagination() {
     setPage(page+1);
   }
@@ -37,18 +49,18 @@ const Landing = () => {
   return (
     <>
       <Navbar/>
-      <form action="">
+      <form>
         <div className='form-action'>
           <div className='form-description'>
             <div className='form-description-title'>Job Description</div>
-            <input type="text" onChange={handleFilterDescription} className='form-description-input' placeholder='Filter by title, benefits, companies, expertise' />
+            <input type="text" ref={input1} className='form-description-input' placeholder='Filter by title, benefits, companies, expertise' />
           </div>
           <div>
             <div className='form-description-title'>Location</div>
-            <input type="text" onChange={handleFilterLocation} className='form-description-input' placeholder='Filter by city, state, zip code or country' />
+            <input type="text" ref={input2} className='form-description-input' placeholder='Filter by city, state, zip code or country' />
           </div>
           <div className='form-checkbox'>
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" ref={inputCheck} />
             <div className='form-description-title'>Full Time Only</div>
           </div>
           <div className='form-button-placement'>
@@ -61,20 +73,22 @@ const Landing = () => {
         <div>
           <h2>Job List</h2>
           {dataFetch?.map((data) => {
-            return <div className='card-data'>
-              <div>
-                <div className='card-data-title'>{data.title}</div>
-                <div className='card-data-wrap'>
-                  <div className='card-data-company'>{data.company}</div>
-                  <div> - </div>
-                  <div className='card-data-type'>{data.type}</div>
+            return <Link to={`detail/${data.id}`}>
+              <div key={data.id} className='card-data'>
+                <div>
+                  <div className='card-data-title'>{data.title}</div>
+                  <div className='card-data-wrap'>
+                    <div className='card-data-company'>{data.company}</div>
+                    <div> - </div>
+                    <div className='card-data-type'>{data.type}</div>
+                  </div>
+                </div>
+                <div className='card-data-location'>
+                  <div className='card-data-location'>{data.location}</div>
+                  <div className='card-data-about'>about 2 days</div>
                 </div>
               </div>
-              <div className='card-data-location'>
-                <div className='card-data-location'>{data.location}</div>
-                <div className='card-data-about'>about 2 days</div>
-              </div>
-            </div>
+            </Link>
           })}
           <div className='card-data-button-placement'>
             <button className='card-data-button' onClick={handlePagination}>More Jobs</button>
