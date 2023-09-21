@@ -1,0 +1,106 @@
+.form-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.form-description {
+    padding-left: 10px;
+}
+
+.form-description-title {
+    font-weight: 700;
+}
+
+.form-description-input {
+    width: 300px;
+    padding: 5px 10px;
+    border: 5px solid #EBEBEB;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.form-button-placement {
+    padding-right: 100px;
+}
+
+.form-button {
+    padding: 7px 25px;
+    font-weight: 600;
+    background-color: #9AACB8;
+    color: #FDFDFE;
+    border: 1px solid #9AACB8;
+    border-radius: 3px;
+}
+
+.content-table {
+    border: 6px solid #EBEBEB;
+    margin: 30px 10px 0 10px;
+    padding: 10px 30px;
+}
+
+.card-data {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 2px solid #EBEBEB;
+}
+
+.card-data-wrap {
+    display: flex;
+    gap: 5px;
+}
+
+.card-data-location {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-data-title {
+    color: #427FBE;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-data-company {
+    color: #B2B2B2;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.card-data-type {
+    color: #589E3C;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.card-data-location {
+    font-weight: 600;
+}
+
+.card-data-about {
+    color: #B2B2B2;
+    font-weight: 600;
+}
+
+.card-data-button-placement{
+    padding-top: 10px;
+}
+
+.card-data-button {
+    width: 100%;
+    padding: 6px 0;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #427FBE;
+    border: 1px solid #427FBE;
+    border-radius: 5px;
+    color: #FDFDFE;
+    cursor: pointer;
+}

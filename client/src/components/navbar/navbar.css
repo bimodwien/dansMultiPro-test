@@ -1,0 +1,18 @@
+.navbar-utama {
+    background-color: #427FBE;
+    display: flex;
+    padding: 15px 10px;
+    color: #FDFDFE;
+    gap: 2px;
+    box-shadow: 1px lightgray;
+}
+
+.navbar-judul {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar-subjudul {
+    font-size: 30px;
+    font-weight: 500;
+}
