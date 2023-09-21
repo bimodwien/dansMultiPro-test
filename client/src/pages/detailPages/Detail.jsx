@@ -8,7 +8,7 @@ const Detail = () => {
     const parameter = useParams();
 
     const dataDetail = useFetchDetail({
-        url: `https://dev6.dansmultipro.com/api/recruitment/positions/${parameter.positionId}`,
+        url: `http://localhost:3001/${parameter.positionId}`,
         defaultData: {},
     })
 

@@ -3,9 +3,11 @@ import Navbar from '../../components/navbar/Navbar';
 import './landing.css'
 import { useFetch } from '../../helper';
 import { Link } from 'react-router-dom';
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 
 const Landing = () => {
-
+  dayjs.extend(relativeTime)
   const [page, setPage] = useState(1)
   const [filterDescription, setFilterDescription] = useState('')
   const [filterLocation, setFilterLocation] = useState('')
@@ -19,7 +21,7 @@ const Landing = () => {
   })
 
   const dataFetch = useFetch({
-    url: `https://dev6.dansmultipro.com/api/recruitment/positions.json?${params.join('&')}`,
+    url: `http://localhost:3001/data?${params.join('&')}`,
     defaultData: [],
     shouldContinue: () => page !== 1
   })
@@ -83,9 +85,9 @@ const Landing = () => {
                     <div className='card-data-type'>{data.type}</div>
                   </div>
                 </div>
-                <div className='card-data-location'>
+                <div className='card-data-right'>
                   <div className='card-data-location'>{data.location}</div>
-                  <div className='card-data-about'>about 2 days</div>
+                  <div className='card-data-about'>{dayjs(data.created_at).fromNow()}</div>
                 </div>
               </div>
             </Link>
