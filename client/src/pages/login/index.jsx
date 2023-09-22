@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { useNavigate } from "react-router-dom";
+import Navbar from '../../components/navbar/Navbar'
+import '../login/login.css'
+
 
 const Login = () => {
     useEffect(() => {
@@ -38,12 +41,15 @@ const Login = () => {
 
   return (
     <>
-    <div>
-        <label htmlFor='username'>Username</label>
-        <input type="text" id='username' ref={username}/>
-        <label htmlFor='password'>password</label>
-        <input type="password" name="" id="password" ref={password}/>
-        <button onClick={login}>login</button>
+    <Navbar/>
+    <div className='login-table'>
+        <div className='login-form'>
+            <label htmlFor='username'>Username</label>
+            <input type="text" id='username' ref={username}/>
+            <label htmlFor='password'>password</label>
+            <input type="password" name="" id="password" ref={password}/>
+            <button className='login-button' onClick={login}>login</button>
+        </div>
     </div>
     </>
   )

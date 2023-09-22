@@ -1,10 +1,23 @@
+.detail-back {
+    padding: 10px 20px;
+}
+
+.detail-link {
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: none;
+    color: #427FBE;
+}
+
 .detail-main {
     border: 8px solid #EBEBEB;
+    margin: 10px 20px;
 }
 
 .detail-nav {
     padding: 10px 30px;
     border-bottom: 3px solid #EBEBEB;
+    background-color: #ffffff;
 }
 
 .detail-content {
@@ -15,4 +28,65 @@
 .detail-description {
     width: 60%;
     background-color: #ffffff;
+    padding: 10px 30px;
+}
+
+.detail-companies-table {
+    border: 5px solid #EBEBEB;
+    border-radius: 5px;
+}
+.detail-companies {
+    width: 30%;
+    padding: 20px 30px 0 30px;
+}
+
+.detail-jobs {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 2px solid #EBEBEB;
+}
+.detail-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    margin: 20px;
+    width: 350px;
+    height: 200px;
+}
+
+.detail-company-name {
+    font-weight: 700;
+}
+
+.detail-company-jobs {
+    margin-right: 6px;
+    padding: 3px 5px;
+    background-color: #EBEBEB;
+    color: #427FBE;
+    border: 1px solid #EBEBEB;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.detail-company-url {
+    padding: 0 20px 20px 20px;
+    color: #427FBE;
+    font-weight: 600;
+}
+
+.coloring-yellow {
+    background-color: #FFFEF0;
+}
+
+.detail-apply {
+    padding: 10px 20px;
+    border-bottom: 3px solid #EBEBEB;
+    font-weight: 700;
+}
+
+.detail-how-to {
+    padding: 10px 20px;
 }
