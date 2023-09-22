@@ -20,7 +20,6 @@ class UserController {
                     id: user.dataValues.id,
                     username: user.dataValues.username
                 })
-                console.log(access_token);
                 res.status(200).json({
                     access_token
                 })

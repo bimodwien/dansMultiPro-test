@@ -1,5 +1,4 @@
 'use strict'
-// const fetch = require('node-fetch')
 
 class DataController {
     static async fetchData(req, res) {
